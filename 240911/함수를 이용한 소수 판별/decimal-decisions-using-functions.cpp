@@ -3,14 +3,14 @@ using namespace std;
 
 bool isPrime(int n){
     for (int i = 2; i < n; i++){
-        if (n%i == 0){
+        if (n%i == 0 || n == 1){
             return false;
         }
     }
     return true;
 }
 
-int solution(int a, int b){
+int addPrime(int a, int b){
     int sum = 0;
     for (int i = a; i <= b; i++){
         if (isPrime(i)){
@@ -26,7 +26,7 @@ int main() {
     cin >> a >> b;
 
     //연산
-    int sum = solution(a, b);
+    int sum = addPrime(a, b);
 
     //출력
     cout << sum;
