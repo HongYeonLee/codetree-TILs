@@ -30,7 +30,7 @@ bool isPrime(int n){
 
 int solution(int a, int b){
     int cnt = 0;
-    for (int i = a; i < b; i++){
+    for (int i = a; i <= b; i++){
         if(isPrime(i) && isEvenSum(i)){
             cnt++;
         }
