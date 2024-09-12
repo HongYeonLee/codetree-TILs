@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-bool isSame(int n){
+bool isSame(int n, vector<int>& a, vector<int>& b){
     for (int i = 0; i < b.size(); i++){
         if (a[i + n] != b[i]){
             return false;
@@ -13,7 +13,7 @@ bool isSame(int n){
 
 bool isSubsequence(vector<int>& a, vector<int>& b){
     for (int i = 0; i <= a.size() - b.size(); i++){
-        if(isSame(i)){
+        if(isSame(i, a, b)){
             return true;
         }
     }
@@ -36,7 +36,7 @@ int main() {
     }
 
     //연산 & 출력
-    if(IsSubsequence(a, b)){
+    if(isSubsequence(a, b)){
         cout << "Yes";
     }
     else{
