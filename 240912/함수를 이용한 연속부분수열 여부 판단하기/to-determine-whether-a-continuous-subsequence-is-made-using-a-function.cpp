@@ -2,19 +2,14 @@
 #include <vector>
 using namespace std;
 
-bool isSame(int n, vector<int>& a, vector<int>& b){
-    for (int i = 0; i < b.size(); i++){
-        if (a[i + n] != b[i]){
-            return false;
-        }
-    }
-    return true;
-}
-
 bool isSubsequence(vector<int>& a, vector<int>& b){
-    for (int i = 0; i <= a.size() - b.size(); i++){
-        if(isSame(i, a, b)){
-            return true;
+    for (int i = 0; i < a.size(); i++){
+        for (int j = 0; j < b.size(); j++){
+            if(b[j] == a[i]){
+                if(b[j+1] == a[i+1]){
+                    return true;
+                }
+            }
         }
     }
     return false;
@@ -26,17 +21,23 @@ int main() {
     cin >> n1 >> n2;
     vector<int> a(n1);
     vector<int> b(n2);
+    int input;
 
     for (int i = 0; i < a.size(); i++){
-        cin >> a[i];
+        cin >> input;
+        a[i] = input;
     }
 
     for (int i = 0; i < b.size(); i++){
-        cin >> b[i];
+        cin >> input;
+        b[i] = input;
     }
 
-    //연산 & 출력
-    if(isSubsequence(a, b)){
+    //연산
+    bool ans = isSubsequence(a, b);
+
+    //출력 
+    if(ans){
         cout << "Yes";
     }
     else{
