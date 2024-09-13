@@ -49,11 +49,11 @@ bool isExist(int y, int m, int d){
         }
         else{
             if(d<=28){
-                return false;
+                return true;
             }
         }
         break;
-        
+
         default:
             return false;
     }
