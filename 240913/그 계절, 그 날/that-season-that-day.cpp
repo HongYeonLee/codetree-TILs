@@ -14,6 +14,9 @@ string getSeason(int m){
 
         case 12 : case 1 : case 2 :
         return "Winter";
+
+        default :
+            return "없는 달입니다.";
     }
 }
 
@@ -30,10 +33,14 @@ bool isExist(int y, int m, int d){
         if (d <= 31){
             return true;
         }
+        break;
+
         case 4 : case 6 : case 9 : case 11 :
         if (d <= 30){
             return true;
         }
+        break;
+
         case 2:
         if (isLeapYear(y)){
             if(d<=29){
@@ -41,10 +48,12 @@ bool isExist(int y, int m, int d){
             }
         }
         else{
-            if(d<=29){
+            if(d<=28){
                 return false;
             }
         }
+        break;
+        
         default:
             return false;
     }
@@ -55,7 +64,7 @@ int main() {
     int y, m, d;
     cin >> y >> m >> d;
 
-    //연산
+    //연산 & 출력
     if(isExist(y, m, d)){
         cout << getSeason(m);
     }
